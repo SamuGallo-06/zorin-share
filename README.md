@@ -1,5 +1,10 @@
 # Zorin Share
 
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![GTK](https://img.shields.io/badge/GTK-4.0-7FE719?logo=gtk&logoColor=white)](https://www.gtk.org/)
+[![GNOME App](https://img.shields.io/badge/GNOME%20App-Ready-2EA2FF?logo=gnome&logoColor=white)](https://www.gnome.org/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 A modern GTK4 application for managing Samba shared folders on Linux systems.
 
 ## Features

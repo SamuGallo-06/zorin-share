@@ -3,7 +3,7 @@ import utils
 import os
 import gi
 gi.require_version('Gtk', '4.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, Gio
 from dialogs import AddFolderDialog, EditFolderDialog
 
 class ZorinShare(Gtk.Application):
@@ -16,6 +16,36 @@ class ZorinShare(Gtk.Application):
         """Create and show the main application window."""
         window = Gtk.ApplicationWindow(application=app, title="Zorin Share")
         window.set_default_size(600, 400)
+
+        headerBar = Gtk.HeaderBar()
+        headerBar.set_show_title_buttons(True)
+        window.set_titlebar(headerBar)
+
+        # Hamburger Menu (GTK4 style)
+        self.menuButton = Gtk.MenuButton()
+        self.menuButton.set_icon_name("open-menu-symbolic")
+        headerBar.pack_end(self.menuButton)
+
+        # Create menu model
+        self.menu = Gio.Menu()
+        self.menu.append("Refresh List", "app.refresh")
+        self.menu.append("About", "app.about")
+        self.menu.append("Quit", "app.quit")
+        
+        self.menuButton.set_menu_model(self.menu)
+        
+        # Create actions
+        refreshAction = Gio.SimpleAction.new("refresh", None)
+        refreshAction.connect("activate", lambda a, p: self.UpdateList())
+        self.add_action(refreshAction)
+        
+        aboutAction = Gio.SimpleAction.new("about", None)
+        aboutAction.connect("activate", lambda a, p: self.ShowAboutDialog())
+        self.add_action(aboutAction)
+        
+        quitAction = Gio.SimpleAction.new("quit", None)
+        quitAction.connect("activate", lambda a, p: self.quit())
+        self.add_action(quitAction)
 
         mainBox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         mainBox.set_margin_start(20)
@@ -146,6 +176,31 @@ class ZorinShare(Gtk.Application):
             self.sharedFolders.remove(folder)
             utils.RemoveShareFromSmbConf(folder)
             self.UpdateList()
+    
+    def ShowAboutDialog(self):
+        """Show the About dialog in GNOME style."""
+        aboutDialog = Gtk.AboutDialog()
+        aboutDialog.set_transient_for(self.get_active_window())
+        aboutDialog.set_modal(True)
+        
+        # Application info
+        aboutDialog.set_program_name("Zorin Share")
+        aboutDialog.set_version("1.0.0")
+        aboutDialog.set_comments("A modern GTK4 application for managing Samba shared folders")
+        aboutDialog.set_website("https://github.com/SamuGallo-06/zorin-share")
+        aboutDialog.set_website_label("GitHub Repository")
+        
+        # Copyright and license
+        aboutDialog.set_copyright("© 2025 Samuele Gallicani")
+        aboutDialog.set_license_type(Gtk.License.GPL_3_0)
+        
+        # Authors
+        aboutDialog.set_authors(["SamuGallo-06"])
+        
+        aboutDialog.set_logo_icon_name("folder-remote")
+        
+        aboutDialog.present()
+
 
 if __name__ == "__main__":
     app = ZorinShare()
