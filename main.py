@@ -8,8 +8,8 @@ from dialogs import AddFolderDialog, EditFolderDialog
 
 from i18n import _ # Import translation function
 
-PROGRAM_NAME = "Zorin Share"
-APPLICATION_ID = "com.samugallo.zorin-share"
+PROGRAM_NAME = "Samba Configurator"
+APPLICATION_ID = "com.samugallo.samba-configurator"
 
 class ZorinShare(Gtk.Application):
     def __init__(self):
@@ -31,7 +31,7 @@ class ZorinShare(Gtk.Application):
         if not sambaStatus['running']:
             self.ShowSambaWarningDialog()
         
-        window = Gtk.ApplicationWindow(application=app, title="Zorin Share")
+        window = Gtk.ApplicationWindow(application=app, title=PROGRAM_NAME)
         window.set_default_size(600, 400)
 
         headerBar = Gtk.HeaderBar()
