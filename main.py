@@ -10,6 +10,8 @@ from i18n import _ # Import translation function
 
 PROGRAM_NAME = "Samba Configurator"
 APPLICATION_ID = "com.samugallo.samba-configurator"
+VERSION = "1.0.0"
+REPOSITORY_URL = "https://www.github.com/SamuGallo-06/samba-configurator"
 
 class ZorinShare(Gtk.Application):
     def __init__(self):
@@ -241,9 +243,9 @@ class ZorinShare(Gtk.Application):
         
         # Application info
         aboutDialog.set_program_name(PROGRAM_NAME)
-        aboutDialog.set_version("1.0.0")
+        aboutDialog.set_version(VERSION)
         aboutDialog.set_comments("A modern GTK4 application for managing Samba shared folders")
-        aboutDialog.set_website("https://github.com/SamuGallo-06/zorin-share")
+        aboutDialog.set_website(REPOSITORY_URL)
         aboutDialog.set_website_label("GitHub Repository")
         
         # Copyright and license

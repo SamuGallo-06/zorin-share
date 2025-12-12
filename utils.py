@@ -4,6 +4,8 @@ import subprocess
 import shutil
 from i18n import _
 
+from main import PROGRAM_NAME
+
 SMB_CONF_PATH = "/etc/samba/smb.conf"
 
 def CheckSambaStatus() -> dict:
@@ -73,7 +75,7 @@ def StopSambaService() -> bool:
         return False
 
 def CraftSmbEntry(folder: SharedFolder) -> str:
-        entry = f"""## Created By Zorin Share ##
+        entry = f"""## Created By {PROGRAM_NAME} ##
 [{folder.name}]
    comment = {folder.comment}
    path = {folder.path}
