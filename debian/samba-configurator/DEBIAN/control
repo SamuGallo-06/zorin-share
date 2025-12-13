@@ -1,8 +1,8 @@
 Package: samba-configurator
-Version: 1.0.0-1
+Version: 1.0.3
 Architecture: all
 Maintainer: Samu Gallicani <samu.gallicani@gmail.com>
-Installed-Size: 103
+Installed-Size: 106
 Depends: python3-gi, gir1.2-gtk-4.0, samba, pkexec
 Section: net
 Priority: optional
@@ -11,7 +11,7 @@ Description: GTK4 application for managing Samba shared folders
  Samba Configurator is a user-friendly graphical application for managing
  Samba shared folders on Linux systems. It provides an intuitive
  interface to add, edit, and remove network shares with support
- for multiple languages (English and Italian).
+ for multiple languages.
  .
  Features include:
   - Add and remove Samba shares

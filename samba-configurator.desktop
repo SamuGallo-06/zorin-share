@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Zorin Share
+Name=Samba Configurator
 Comment=Manage Samba shared folders
 Comment[it]=Gestisci cartelle condivise Samba
-Exec=zorin-share
+Exec=samba-configurator
 Icon=folder-remote
 Terminal=false
 Categories=Network;System;Settings;

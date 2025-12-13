@@ -1,3 +1,11 @@
+samba-configurator (1.0.3) UNRELEASED; urgency=medium
+
+  * Bug Fix
+  * Bug Fix: Cannot open program due to pkecec syntax error
+  * Restored pkexec policy
+
+ -- Samuele Gallicani <samug@iMac-di-Luca-e-Grazia>  Sat, 13 Dec 2025 14:26:30 +0100
+
 samba-configurator (1.0.0-1) unstable; urgency=medium
 
   * Initial release

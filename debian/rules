@@ -5,11 +5,11 @@
 
 override_dh_auto_build:
 	# Compile translation files
-	msgfmt po/en.po -o locale/en/LC_MESSAGES/zorin-share.mo
-	msgfmt po/it.po -o locale/it/LC_MESSAGES/zorin-share.mo
-	msgfmt po/es.po -o locale/es/LC_MESSAGES/zorin-share.mo
-	msgfmt po/fr.po -o locale/fr/LC_MESSAGES/zorin-share.mo
-	msgfmt po/de.po -o locale/de/LC_MESSAGES/zorin-share.mo
+	msgfmt po/en.po -o locale/en/LC_MESSAGES/samba-configurator.mo
+	msgfmt po/it.po -o locale/it/LC_MESSAGES/samba-configurator.mo
+	msgfmt po/es.po -o locale/es/LC_MESSAGES/samba-configurator.mo
+	msgfmt po/fr.po -o locale/fr/LC_MESSAGES/samba-configurator.mo
+	msgfmt po/de.po -o locale/de/LC_MESSAGES/samba-configurator.mo
 
 override_dh_auto_clean:
 	rm -f locale/*/LC_MESSAGES/*.mo
@@ -40,11 +40,11 @@ override_dh_auto_install:
 	
 	# Install executable launcher
 	install -d debian/samba-configurator/usr/bin
-	install -m 755 zorin-share.sh debian/samba-configurator/usr/bin/zorin-share
+	install -m 755 samba-configurator.sh debian/samba-configurator/usr/bin/samba-configurator
 	
 	# Install desktop entry
 	install -d debian/samba-configurator/usr/share/applications
-	install -m 644 zorin-share.desktop debian/samba-configurator/usr/share/applications/
+	install -m 644 samba-configurator.desktop debian/samba-configurator/usr/share/applications/
 	
 	# Install documentation
 	install -d debian/samba-configurator/usr/share/doc/samba-configurator

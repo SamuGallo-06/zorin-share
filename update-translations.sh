@@ -1,10 +1,10 @@
 #!/bin/bash
-# Script to update translation files for Zorin Share
+# Script to update translation files for Samba Configurator
 
 # Configuration
 TRANSLATOR_NAME="Samuele Gallicani"
 TRANSLATOR_EMAIL="samu.gallicani@gmail.com"
-PROJECT_NAME="Zorin Share"
+PROJECT_NAME="Samba Configurator"
 PROJECT_VERSION="1.0.0"
 
 # Colors for output
@@ -16,7 +16,7 @@ echo -e "${BLUE}Updating translations for ${PROJECT_NAME}...${NC}"
 
 # Extract translatable strings from Python files
 echo -e "${GREEN}1. Extracting strings...${NC}"
-xgettext --language=Python --keyword=_ --output=po/zorin-share.pot \
+xgettext --language=Python --keyword=_ --output=po/samba-configurator.pot \
     --package-name="${PROJECT_NAME}" \
     --package-version="${PROJECT_VERSION}" \
     --msgid-bugs-address="${TRANSLATOR_EMAIL}" \
@@ -28,7 +28,7 @@ echo -e "${GREEN}2. Updating .po files...${NC}"
 for po_file in po/*.po; do
     if [ -f "$po_file" ]; then
         echo "   Updating $po_file"
-        msgmerge --update "$po_file" po/zorin-share.pot
+        msgmerge --update "$po_file" po/samba-configurator.pot
     fi
 done
 
@@ -43,13 +43,13 @@ for po_file in po/*.po; do
         mkdir -p "locale/${lang}/LC_MESSAGES"
         
         # Compile .po to .mo
-        echo "   Compiling $po_file -> locale/${lang}/LC_MESSAGES/zorin-share.mo"
-        msgfmt "$po_file" -o "locale/${lang}/LC_MESSAGES/zorin-share.mo"
+        echo "   Compiling $po_file -> locale/${lang}/LC_MESSAGES/samba-configurator.mo"
+        msgfmt "$po_file" -o "locale/${lang}/LC_MESSAGES/samba-configurator.mo"
     fi
 done
 
 echo -e "${BLUE}Translation update complete!${NC}"
 echo ""
 echo "To add a new language, run:"
-echo "  msginit --input=po/zorin-share.pot --locale=LANG --output=po/LANG.po"
+echo "  msginit --input=po/samba-configurator.pot --locale=LANG --output=po/LANG.po"
 echo "  (Replace LANG with language code, e.g., es, fr, de)"

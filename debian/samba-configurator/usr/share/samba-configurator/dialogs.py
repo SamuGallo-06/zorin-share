@@ -42,6 +42,11 @@ class AddFolderDialog(Gtk.Window):
         # Folder Path
         pathLabel = Gtk.Label(label="Folder Path:")
         pathLabel.set_halign(Gtk.Align.START)
+        browseButton = Gtk.Button(label=_("Browse"))
+        browseButton.set_tooltip_text(_("Browse for folder"))
+        browseButton.connect("clicked", self.on_browse_clicked)
+        browseButton.set_icon_name("folder-open-symbolic")
+        grid.attach(browseButton, 2, 1, 1, 1)
         self.pathEntry = Gtk.Entry()
         grid.attach(pathLabel, 0, 1, 1, 1) # ROW, COLUMN, WIDTH, HEIGHT
         grid.attach(self.pathEntry, 1, 1, 1, 1)
@@ -164,6 +169,21 @@ class AddFolderDialog(Gtk.Window):
         ok_button.get_style_context().add_class("suggested-action")
         ok_button.connect("clicked", self.OnOkClicked)
         button_box.append(ok_button)
+
+    def on_browse_clicked(self, button):
+        # Create a FileDialog in GTK 4
+        dialog = Gtk.FileDialog()
+        dialog.set_title(_("Select Folder"))
+        
+        def on_folder_selected(dialog, result):
+            try:
+                folder = dialog.select_folder_finish(result)
+                if folder:
+                    self.pathEntry.set_text(folder.get_path())
+            except Exception as e:
+                pass  # User cancelled
+        
+        dialog.select_folder(self, None, on_folder_selected)
 
     def OnCancelClicked(self, button):
         print(_("Cancel clicked"))

@@ -8,9 +8,14 @@ from dialogs import AddFolderDialog, EditFolderDialog
 
 from i18n import _ # Import translation function
 
+PROGRAM_NAME = "Samba Configurator"
+APPLICATION_ID = "com.samugallo.samba-configurator"
+VERSION = "1.0.0"
+REPOSITORY_URL = "https://www.github.com/SamuGallo-06/samba-configurator"
+
 class ZorinShare(Gtk.Application):
     def __init__(self):
-        super().__init__(application_id="com.samugallo06.zorinshare", flags=gi.repository.Gio.ApplicationFlags.FLAGS_NONE)
+        super().__init__(application_id=APPLICATION_ID, flags=gi.repository.Gio.ApplicationFlags.FLAGS_NONE)
         self.sharedFolders = []
         self.connect("activate", self.OnActivate)
     
@@ -28,7 +33,7 @@ class ZorinShare(Gtk.Application):
         if not sambaStatus['running']:
             self.ShowSambaWarningDialog()
         
-        window = Gtk.ApplicationWindow(application=app, title="Zorin Share")
+        window = Gtk.ApplicationWindow(application=app, title=PROGRAM_NAME)
         window.set_default_size(600, 400)
 
         headerBar = Gtk.HeaderBar()
@@ -39,6 +44,20 @@ class ZorinShare(Gtk.Application):
         self.menuButton = Gtk.MenuButton()
         self.menuButton.set_icon_name("open-menu-symbolic")
         headerBar.pack_end(self.menuButton)
+
+        # Samba Start/Stop Button
+        self.sambaStartStopButton = Gtk.Button()
+        headerBar.pack_start(self.sambaStartStopButton)
+        self.sambaStartStopButton.connect("clicked", self.OnSambaStartStopClicked)
+        self.sambaStartStopButton.set_tooltip_text(_("Start/Stop Samba Service"))
+        self.sambaStartStopButton.set_icon_name("system-shutdown-symbolic")
+
+        #Status Indicator
+        self.sambaStatusIndicator = Gtk.Image()
+        self.sambaStatusIndicator.set_pixel_size(16)
+        headerBar.pack_start(self.sambaStatusIndicator)
+        self.sambaStatusIndicator.set_tooltip_text(_("Samba Service Status"))
+        self.UpdateSambaStatusIndicator()
 
         # Create menu model
         self.menu = Gio.Menu()
@@ -87,6 +106,31 @@ class ZorinShare(Gtk.Application):
 
         window.set_child(mainBox)
         window.present()
+
+    def OnSambaStartStopClicked(self, button):
+        sambaStatus = utils.CheckSambaStatus()
+        if sambaStatus['running']:
+            # Stop Samba
+            if utils.StopSambaService():
+                self.ShowInfoDialog(_("Success"), _("Samba service stopped successfully"))
+            else:
+                self.ShowErrorDialog(_("Error"), _("Failed to stop Samba service.\n\nPlease stop it manually:\nsudo systemctl stop smbd"))
+        else:
+            # Start Samba
+            if utils.StartSambaService():
+                self.ShowInfoDialog(_("Success"), _("Samba service started successfully"))
+            else:
+                self.ShowErrorDialog(_("Error"), _("Failed to start Samba service.\n\nPlease start it manually:\nsudo systemctl start smbd"))
+        self.UpdateSambaStatusIndicator()
+
+    def UpdateSambaStatusIndicator(self):
+        sambaStatus = utils.CheckSambaStatus()
+        if sambaStatus['running']:
+            self.sambaStatusIndicator.set_from_icon_name("network-transmit-receive-symbolic")
+            self.sambaStatusIndicator.set_tooltip_text(_("Samba Service is Running"))
+        else:
+            self.sambaStatusIndicator.set_from_icon_name("network-offline-symbolic")
+            self.sambaStatusIndicator.set_tooltip_text(_("Samba Service is Stopped"))
 
     def UpdateList(self):
         self.sharedFolders = utils.ParseSmbConf()
@@ -198,10 +242,10 @@ class ZorinShare(Gtk.Application):
         aboutDialog.set_modal(True)
         
         # Application info
-        aboutDialog.set_program_name("Zorin Share")
-        aboutDialog.set_version("1.0.0")
+        aboutDialog.set_program_name(PROGRAM_NAME)
+        aboutDialog.set_version(VERSION)
         aboutDialog.set_comments("A modern GTK4 application for managing Samba shared folders")
-        aboutDialog.set_website("https://github.com/SamuGallo-06/zorin-share")
+        aboutDialog.set_website(REPOSITORY_URL)
         aboutDialog.set_website_label("GitHub Repository")
         
         # Copyright and license
