@@ -32,6 +32,16 @@ cd zorin-share
 sudo ./install.sh
 ```
 
+### Install using .deb package
+
+- Download the latest .deb release package from the release section
+- Open a terminal in your downloads folder and run the following command, replacing `x.y.z` with the correct version
+
+```bash
+sudo apt install ./samba-configurator_x.y.z_all.deb
+```
+
+
 ## Usage
 
 Run the application and use the GUI to add, edit, or remove Samba shares without manually editing configuration files.

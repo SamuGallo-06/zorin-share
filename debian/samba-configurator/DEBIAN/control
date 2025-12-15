@@ -1,8 +1,8 @@
 Package: samba-configurator
-Version: 1.0.3
+Version: 1.0.4
 Architecture: all
 Maintainer: Samu Gallicani <samu.gallicani@gmail.com>
-Installed-Size: 106
+Installed-Size: 110
 Depends: python3-gi, gir1.2-gtk-4.0, samba, pkexec
 Section: net
 Priority: optional

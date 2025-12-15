@@ -42,3 +42,6 @@ Thumbs.db
 # Temporary files
 *.bak
 *.tmp
+
+# Final package
+samba-configurator*.deb
