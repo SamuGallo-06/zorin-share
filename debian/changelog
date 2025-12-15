@@ -1,3 +1,11 @@
+samba-configurator (1.0.6) noble jammy focal; urgency=medium
+
+  * Fixed delete confirmation dialog to use GTK4 AlertDialog instead of deprecated MessageDialog
+  * Improved RemoveShareFromSmbConf to also remove "Created By" comments
+  * Bug fixes and improvements
+
+ -- Samuele Gallicani <samu.gallicani@gmail.com>  Sun, 15 Dec 2025 16:00:00 +0100
+
 samba-configurator (1.0.5) noble jammy focal; urgency=medium
 
   * Added application icon with multi-resolution support

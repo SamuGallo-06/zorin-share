@@ -10,7 +10,7 @@ from i18n import _ # Import translation function
 
 PROGRAM_NAME = "Samba Configurator"
 APPLICATION_ID = "com.samugallo.samba-configurator"
-VERSION = "1.0.5"
+VERSION = "1.0.6"
 REPOSITORY_URL = "https://www.github.com/SamuGallo-06/samba-configurator"
 
 class ZorinShare(Gtk.Application):
