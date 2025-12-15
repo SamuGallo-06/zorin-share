@@ -1,4 +1,4 @@
-samba-configurator (1.0.5) UNRELEASED; urgency=medium
+samba-configurator (1.0.5) noble jammy focal; urgency=medium
 
   * Added application icon with multi-resolution support
   * Icon available in 16x16, 22x22, 32x32, 48x48, 64x64, 128x128, 256x256, 512x512
@@ -6,7 +6,7 @@ samba-configurator (1.0.5) UNRELEASED; urgency=medium
 
  -- Samuele Gallicani <samu.gallicani@gmail.com>  Sun, 15 Dec 2025 15:00:00 +0100
 
-samba-configurator (1.0.4) UNRELEASED; urgency=medium
+samba-configurator (1.0.4) noble jammy focal; urgency=medium
 
   * Added translations support for multiple languages
   * Translations added: Italian, English, German, Spanish, French
@@ -14,7 +14,7 @@ samba-configurator (1.0.4) UNRELEASED; urgency=medium
 
  -- Samuele Gallicani <samu.gallicani@gmail.com>  Sun, 15 Dec 2025 14:00:00 +0100
 
-samba-configurator (1.0.3) UNRELEASED; urgency=medium
+samba-configurator (1.0.3) noble jammy focal; urgency=medium
 
   * Bug Fix
   * Bug Fix: Cannot open program due to pkecec syntax error

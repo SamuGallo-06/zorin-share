@@ -1,7 +1,7 @@
 11def77b0b558c0552ff1fc237468b86  usr/bin/samba-configurator
 a2ad074a235a75a6976d5e4b4590a62f  usr/share/applications/samba-configurator.desktop
 c520d7fb8b1d67bdb9c3056fe9c84398  usr/share/doc/samba-configurator/README.md
-644301dc0aa68044c55b6e939f5a6bec  usr/share/doc/samba-configurator/changelog.gz
+a43494e6e18579c95ef770b0842946f2  usr/share/doc/samba-configurator/changelog.gz
 579bfce6d56cc117de837caa601298fd  usr/share/doc/samba-configurator/copyright
 233f850248cb6ef51ff36f9a80addfe5  usr/share/icons/hicolor/128x128/apps/samba-configurator.png
 51b69acf50899131c694dac41ff2a804  usr/share/icons/hicolor/16x16/apps/samba-configurator.png
