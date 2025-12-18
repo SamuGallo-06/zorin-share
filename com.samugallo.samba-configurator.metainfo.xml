@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.samugallo.samba-configurator</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Samba Configurator</name>
+  <summary>Manage Samba shared folders with ease</summary>
+
+  <description>
+    <p>
+      Samba Configurator is a user-friendly graphical application for managing Samba shared folders on Linux systems.
+      It provides an intuitive GTK4 interface to add, edit, and remove network shares with support for multiple languages.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Add and remove Samba shares with a simple interface</li>
+      <li>Edit share properties including permissions, users, and masks</li>
+      <li>Support for guest access and read-only shares</li>
+      <li>Advanced options for expert users (directory mask, create mask)</li>
+      <li>Multi-language support (Italian, English, German, Spanish, French)</li>
+      <li>Start and stop Samba service directly from the app</li>
+      <li>Real-time service status monitoring</li>
+    </ul>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main window showing shared folders list</caption>
+      <image>https://raw.githubusercontent.com/SamuGallo-06/samba-configurator/master/screenshots/main-window.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/SamuGallo-06/samba-configurator</url>
+  <url type="bugtracker">https://github.com/SamuGallo-06/samba-configurator/issues</url>
+
+  <developer_name>Samuele Gallicani</developer_name>
+  <update_contact>samu.gallicani@gmail.com</update_contact>
+
+  <provides>
+    <binary>samba-configurator</binary>
+  </provides>
+
+  <launchable type="desktop-id">samba-configurator.desktop</launchable>
+
+  <releases>
+    <release version="1.0.5" date="2025-12-15">
+      <description>
+        <p>Icon and Visual Improvements</p>
+        <ul>
+          <li>Added custom application icon with multi-resolution support</li>
+          <li>Icon available in 8 different resolutions (16x16 to 512x512)</li>
+          <li>Enhanced desktop integration</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.4" date="2025-12-15">
+      <description>
+        <p>Multi-Language Support</p>
+        <ul>
+          <li>Added translations for Italian, English, German, Spanish, French</li>
+          <li>Automatic language detection based on system locale</li>
+          <li>Complete translation of all UI strings</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.3" date="2025-12-13">
+      <description>
+        <p>Bug Fixes</p>
+        <ul>
+          <li>Fixed pkexec syntax error preventing program launch</li>
+          <li>Restored pkexec policy</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.0" date="2024-12-11">
+      <description>
+        <p>Initial Release</p>
+        <ul>
+          <li>GTK4-based graphical interface for Samba share management</li>
+          <li>Add, edit, and remove shared folders functionality</li>
+          <li>Permission management (read-only, guest access, valid users)</li>
+          <li>File and directory mask configuration</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1" />
+
+  <keywords>
+    <keyword>samba</keyword>
+    <keyword>share</keyword>
+    <keyword>network</keyword>
+    <keyword>folder</keyword>
+    <keyword>smb</keyword>
+    <keyword>configuration</keyword>
+  </keywords>
+
+  <categories>
+    <category>Network</category>
+    <category>System</category>
+    <category>Settings</category>
+  </categories>
+
+  <requires>
+    <display_length compare="ge">medium</display_length>
+  </requires>
+  <content_rating type="oars-1.1" />
+</component>
